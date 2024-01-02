@@ -1,4 +1,4 @@
-package com.kproject.composejourney
+package com.kproject.composejourney.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.kproject.composejourney.ui.theme.ComposeJourneyTheme
+import com.kproject.composejourney.presentation.theme.ComposeJourneyTheme
 
 class MainActivity : ComponentActivity() {
 

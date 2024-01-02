@@ -1,4 +1,4 @@
-package com.kproject.composejourney.ui.theme
+package com.kproject.composejourney.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
