@@ -124,6 +124,26 @@ private fun ProfileColumnCenter() {
     }
 }
 
+@Composable
+private fun ProfileColumnCustomAlignment() {
+    Column(
+        modifier = Modifier.width(250.dp),
+        horizontalAlignment = Alignment.End
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.baseline_person_24),
+            contentDescription = "profile image",
+            modifier = Modifier
+                .size(50.dp)
+                .align(Alignment.CenterHorizontally)
+        )
+        Text(
+            text = "John",
+            modifier = Modifier.align(Alignment.Start)
+        )
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 private fun Preview1() {
@@ -201,5 +221,13 @@ private fun Preview9() {
 private fun Preview10() {
     ComposeJourneyTheme {
         ProfileColumnCenter()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview11() {
+    ComposeJourneyTheme {
+        ProfileColumnCustomAlignment()
     }
 }
