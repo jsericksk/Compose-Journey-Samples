@@ -16,7 +16,7 @@ import com.kproject.composejourney.R
 import com.kproject.composejourney.presentation.theme.ComposeJourneyTheme
 
 @Composable
-fun ProfileNoLayout() {
+private fun ProfileNoLayout() {
     Image(
         painter = painterResource(id = R.drawable.baseline_person_24),
         contentDescription = "profile image",
@@ -26,14 +26,14 @@ fun ProfileNoLayout() {
 }
 
 @Composable
-fun ProfileColumn() {
+private fun ProfileColumn() {
     Column {
         Content()
     }
 }
 
 @Composable
-fun ProfileColumnHorizontalStart() {
+private fun ProfileColumnHorizontalStart() {
     Column(
         horizontalAlignment = Alignment.Start,
         modifier = Modifier.width(250.dp)
@@ -43,7 +43,7 @@ fun ProfileColumnHorizontalStart() {
 }
 
 @Composable
-fun ProfileColumnCenterHorizontally() {
+private fun ProfileColumnCenterHorizontally() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.width(250.dp)
@@ -53,7 +53,7 @@ fun ProfileColumnCenterHorizontally() {
 }
 
 @Composable
-fun ProfileColumnHorizontalEnd() {
+private fun ProfileColumnHorizontalEnd() {
     Column(
         horizontalAlignment = Alignment.End,
         modifier = Modifier.width(250.dp)
@@ -63,7 +63,7 @@ fun ProfileColumnHorizontalEnd() {
 }
 
 @Composable
-fun ProfileColumnArrangementTop() {
+private fun ProfileColumnArrangementTop() {
     Column(
         verticalArrangement = Arrangement.Top,
         modifier = Modifier.size(150.dp)
@@ -73,7 +73,7 @@ fun ProfileColumnArrangementTop() {
 }
 
 @Composable
-fun ProfileColumnArrangementCenter() {
+private fun ProfileColumnArrangementCenter() {
     Column(
         verticalArrangement = Arrangement.Center,
         modifier = Modifier.size(150.dp)
@@ -83,7 +83,7 @@ fun ProfileColumnArrangementCenter() {
 }
 
 @Composable
-fun ProfileColumnArrangementBottom() {
+private fun ProfileColumnArrangementBottom() {
     Column(
         verticalArrangement = Arrangement.Bottom,
         modifier = Modifier.size(150.dp)
@@ -93,7 +93,7 @@ fun ProfileColumnArrangementBottom() {
 }
 
 @Composable
-fun ProfileColumnArrangementSpaceBetween() {
+private fun ProfileColumnArrangementSpaceBetween() {
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier.size(150.dp)
@@ -103,7 +103,7 @@ fun ProfileColumnArrangementSpaceBetween() {
 }
 
 @Composable
-fun ProfileColumnCenter() {
+private fun ProfileColumnCenter() {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
