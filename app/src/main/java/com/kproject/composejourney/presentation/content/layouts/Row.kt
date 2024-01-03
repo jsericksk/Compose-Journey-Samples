@@ -83,16 +83,6 @@ private fun ProfileRowCenter() {
     }
 }
 
-@Composable
-private fun Content() {
-    Image(
-        painter = painterResource(id = R.drawable.baseline_person_24),
-        contentDescription = "profile image",
-        modifier = Modifier.size(50.dp)
-    )
-    Text(text = "John")
-}
-
 @Preview(showBackground = true)
 @Composable
 private fun Preview1() {

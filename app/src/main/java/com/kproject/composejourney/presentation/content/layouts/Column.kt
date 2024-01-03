@@ -10,10 +10,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextDirection.Companion.Content
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kproject.composejourney.R
 import com.kproject.composejourney.presentation.theme.ComposeJourneyTheme
+
+@Composable
+fun Content() {
+    Image(
+        painter = painterResource(id = R.drawable.baseline_person_24),
+        contentDescription = "profile image",
+        modifier = Modifier.size(50.dp)
+    )
+    Text(text = "John")
+}
 
 @Composable
 private fun ProfileNoLayout() {
@@ -111,16 +122,6 @@ private fun ProfileColumnCenter() {
     ) {
         Content()
     }
-}
-
-@Composable
-private fun Content() {
-    Image(
-        painter = painterResource(id = R.drawable.baseline_person_24),
-        contentDescription = "profile image",
-        modifier = Modifier.size(50.dp)
-    )
-    Text(text = "John")
 }
 
 @Preview(showBackground = true)
