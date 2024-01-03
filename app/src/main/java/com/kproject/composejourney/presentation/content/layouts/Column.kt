@@ -1,6 +1,7 @@
 package com.kproject.composejourney.presentation.content.layouts
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -27,12 +28,7 @@ fun ProfileNoLayout() {
 @Composable
 fun ProfileColumn() {
     Column {
-        Image(
-            painter = painterResource(id = R.drawable.baseline_person_24),
-            contentDescription = "profile image",
-            modifier = Modifier.size(50.dp)
-        )
-        Text(text = "John")
+        Content()
     }
 }
 
@@ -42,12 +38,7 @@ fun ProfileColumnHorizontalStart() {
         horizontalAlignment = Alignment.Start,
         modifier = Modifier.width(250.dp)
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.baseline_person_24),
-            contentDescription = "profile image",
-            modifier = Modifier.size(50.dp)
-        )
-        Text(text = "John")
+        Content()
     }
 }
 
@@ -57,12 +48,7 @@ fun ProfileColumnCenterHorizontally() {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.width(250.dp)
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.baseline_person_24),
-            contentDescription = "profile image",
-            modifier = Modifier.size(50.dp)
-        )
-        Text(text = "John")
+        Content()
     }
 }
 
@@ -72,13 +58,69 @@ fun ProfileColumnHorizontalEnd() {
         horizontalAlignment = Alignment.End,
         modifier = Modifier.width(250.dp)
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.baseline_person_24),
-            contentDescription = "profile image",
-            modifier = Modifier.size(50.dp)
-        )
-        Text(text = "John")
+        Content()
     }
+}
+
+@Composable
+fun ProfileColumnArrangementTop() {
+    Column(
+        verticalArrangement = Arrangement.Top,
+        modifier = Modifier.size(150.dp)
+    ) {
+        Content()
+    }
+}
+
+@Composable
+fun ProfileColumnArrangementCenter() {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier.size(150.dp)
+    ) {
+        Content()
+    }
+}
+
+@Composable
+fun ProfileColumnArrangementBottom() {
+    Column(
+        verticalArrangement = Arrangement.Bottom,
+        modifier = Modifier.size(150.dp)
+    ) {
+        Content()
+    }
+}
+
+@Composable
+fun ProfileColumnArrangementSpaceBetween() {
+    Column(
+        verticalArrangement = Arrangement.SpaceBetween,
+        modifier = Modifier.size(150.dp)
+    ) {
+        Content()
+    }
+}
+
+@Composable
+fun ProfileColumnCenter() {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.size(150.dp)
+    ) {
+        Content()
+    }
+}
+
+@Composable
+private fun Content() {
+    Image(
+        painter = painterResource(id = R.drawable.baseline_person_24),
+        contentDescription = "profile image",
+        modifier = Modifier.size(50.dp)
+    )
+    Text(text = "John")
 }
 
 @Preview(showBackground = true)
@@ -121,3 +163,42 @@ private fun Preview5() {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+private fun Preview6() {
+    ComposeJourneyTheme {
+        ProfileColumnArrangementTop()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview7() {
+    ComposeJourneyTheme {
+        ProfileColumnArrangementCenter()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview8() {
+    ComposeJourneyTheme {
+        ProfileColumnArrangementBottom()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview9() {
+    ComposeJourneyTheme {
+        ProfileColumnArrangementSpaceBetween()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview10() {
+    ComposeJourneyTheme {
+        ProfileColumnCenter()
+    }
+}
