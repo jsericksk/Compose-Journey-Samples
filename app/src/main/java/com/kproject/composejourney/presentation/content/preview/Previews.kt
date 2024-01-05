@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -50,6 +51,10 @@ private fun Profile() {
     }
 }
 
+@Preview(name = "Light theme")
+@Preview(name = "Dark theme", uiMode = Configuration.UI_MODE_NIGHT_YES)
+annotation class PreviewLightDark
+
 @Preview
 @Composable
 private fun Preview1() {
@@ -70,6 +75,33 @@ private fun Preview2() {
 @Preview(name = "Dark theme", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun Preview3() {
+    ComposeJourneyTheme {
+        Profile()
+    }
+}
+
+@PreviewLightDark
+@Composable
+private fun Preview4() {
+    ComposeJourneyTheme {
+        Profile()
+    }
+}
+
+@Preview(
+    name = "Devices.PIXEL_3A_XL",
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    showSystemUi = true,
+    device = Devices.PIXEL_3A_XL
+)
+@Preview(
+    name = "Devices.NEXUS_7",
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    showSystemUi = true,
+    device = Devices.NEXUS_7
+)
+@Composable
+private fun Preview5() {
     ComposeJourneyTheme {
         Profile()
     }
