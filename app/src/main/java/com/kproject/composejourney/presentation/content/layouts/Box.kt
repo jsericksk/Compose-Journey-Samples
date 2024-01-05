@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kproject.composejourney.R
-import com.kproject.composejourney.presentation.theme.ComposeJourneyTheme
+import com.kproject.composejourney.presentation.theme.MyAppTheme
 
 @Composable
 private fun BoxExample() {
@@ -87,7 +87,7 @@ private fun VideoItem() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview1() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         BoxExample()
     }
 }
@@ -95,7 +95,7 @@ private fun Preview1() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview2() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         VideoItem()
     }
 }

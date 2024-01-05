@@ -1,19 +1,15 @@
 package com.kproject.composejourney.presentation.content.layouts
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kproject.composejourney.R
-import com.kproject.composejourney.presentation.theme.ComposeJourneyTheme
+import com.kproject.composejourney.presentation.theme.MyAppTheme
 
 @Composable
 private fun ProfileRow() {
@@ -86,7 +82,7 @@ private fun ProfileRowCenter() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview1() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileRow()
     }
 }
@@ -94,7 +90,7 @@ private fun Preview1() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview2() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileRowHorizontalStart()
     }
 }
@@ -102,7 +98,7 @@ private fun Preview2() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview3() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileRowHorizontalCenter()
     }
 }
@@ -110,7 +106,7 @@ private fun Preview3() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview4() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileRowHorizontalEnd()
     }
 }
@@ -118,7 +114,7 @@ private fun Preview4() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview5() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileRowHorizontalSpaceBetween()
     }
 }
@@ -126,7 +122,7 @@ private fun Preview5() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview6() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileRowHorizontalSpaceEvenly()
     }
 }
@@ -134,7 +130,7 @@ private fun Preview6() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview7() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileRowCenter()
     }
 }

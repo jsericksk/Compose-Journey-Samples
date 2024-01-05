@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.kproject.composejourney.R
-import com.kproject.composejourney.presentation.theme.ComposeJourneyTheme
+import com.kproject.composejourney.presentation.theme.MyAppTheme
 
 
 @Composable
@@ -126,7 +126,7 @@ private fun ConstraintLayoutBox() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview1() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ConstraintLayoutColumn()
     }
 }
@@ -134,7 +134,7 @@ private fun Preview1() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview2() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ConstraintLayoutRow()
     }
 }
@@ -142,7 +142,7 @@ private fun Preview2() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview3() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ConstraintLayoutBox()
     }
 }

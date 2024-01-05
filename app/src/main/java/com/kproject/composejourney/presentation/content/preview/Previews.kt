@@ -2,6 +2,7 @@ package com.kproject.composejourney.presentation.content.preview
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -9,6 +10,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -18,7 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kproject.composejourney.R
-import com.kproject.composejourney.presentation.theme.ComposeJourneyTheme
+import com.kproject.composejourney.presentation.theme.MyAppTheme
 
 @Composable
 private fun Item() {
@@ -51,6 +56,17 @@ private fun Profile() {
     }
 }
 
+@Composable
+private fun ClickableItem() {
+    var count by remember { mutableIntStateOf(0) }
+    Text(
+        text = "Clicks: $count",
+        fontSize = 16.sp,
+        color = Color.Red,
+        modifier = Modifier.clickable { count++ }
+    )
+}
+
 @Preview(name = "Light theme")
 @Preview(name = "Dark theme", uiMode = Configuration.UI_MODE_NIGHT_YES)
 annotation class PreviewLightDark
@@ -58,7 +74,7 @@ annotation class PreviewLightDark
 @Preview
 @Composable
 private fun Preview1() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         Item()
     }
 }
@@ -66,16 +82,16 @@ private fun Preview1() {
 @Preview(showSystemUi = true)
 @Composable
 private fun Preview2() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         Item()
     }
 }
 
-@Preview(name = "Default")
+@Preview(name = "Light theme")
 @Preview(name = "Dark theme", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun Preview3() {
-    ComposeJourneyTheme {
+private fun Preview() {
+    MyAppTheme {
         Profile()
     }
 }
@@ -83,7 +99,7 @@ private fun Preview3() {
 @PreviewLightDark
 @Composable
 private fun Preview4() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         Profile()
     }
 }
@@ -102,7 +118,15 @@ private fun Preview4() {
 )
 @Composable
 private fun Preview5() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         Profile()
+    }
+}
+
+@Preview(showSystemUi = true)
+@Composable
+private fun Preview6() {
+    MyAppTheme {
+        ClickableItem()
     }
 }

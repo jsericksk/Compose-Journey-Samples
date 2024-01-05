@@ -10,11 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextDirection.Companion.Content
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kproject.composejourney.R
-import com.kproject.composejourney.presentation.theme.ComposeJourneyTheme
+import com.kproject.composejourney.presentation.theme.MyAppTheme
 
 @Composable
 fun Content() {
@@ -147,7 +146,7 @@ private fun ProfileColumnCustomAlignment() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview1() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileNoLayout()
     }
 }
@@ -155,7 +154,7 @@ private fun Preview1() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview2() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileColumn()
     }
 }
@@ -163,7 +162,7 @@ private fun Preview2() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview3() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileColumnHorizontalStart()
     }
 }
@@ -171,7 +170,7 @@ private fun Preview3() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview4() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileColumnCenterHorizontally()
     }
 }
@@ -179,7 +178,7 @@ private fun Preview4() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview5() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileColumnHorizontalEnd()
     }
 }
@@ -187,7 +186,7 @@ private fun Preview5() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview6() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileColumnArrangementTop()
     }
 }
@@ -195,7 +194,7 @@ private fun Preview6() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview7() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileColumnArrangementCenter()
     }
 }
@@ -203,7 +202,7 @@ private fun Preview7() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview8() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileColumnArrangementBottom()
     }
 }
@@ -211,7 +210,7 @@ private fun Preview8() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview9() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileColumnArrangementSpaceBetween()
     }
 }
@@ -219,7 +218,7 @@ private fun Preview9() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview10() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileColumnCenter()
     }
 }
@@ -227,7 +226,7 @@ private fun Preview10() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview11() {
-    ComposeJourneyTheme {
+    MyAppTheme {
         ProfileColumnCustomAlignment()
     }
 }
