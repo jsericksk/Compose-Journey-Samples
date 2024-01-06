@@ -3,6 +3,7 @@ package com.kproject.composejourney.presentation.content.components1
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -115,6 +116,26 @@ private fun OutlinedTextField() {
 }
 
 @Composable
+private fun OutlinedTextField2() {
+    var text by remember { mutableStateOf("Jetpack Compose") }
+    OutlinedTextField(
+        value = text,
+        onValueChange = { newText ->
+            text = newText
+        },
+        label = {
+            Text(text = "Nome")
+        },
+        shape = CircleShape,
+        colors = TextFieldDefaults.colors(
+            unfocusedIndicatorColor = Color.Blue,
+            unfocusedLabelColor = Color.Blue,
+            unfocusedContainerColor = Color.White
+        )
+    )
+}
+
+@Composable
 private fun BasicTextField() {
     var text by remember { mutableStateOf("") }
     BasicTextField(
@@ -159,6 +180,16 @@ private fun Preview4() {
     MyAppTheme {
         PaddingForPreview {
             OutlinedTextField()
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview5() {
+    MyAppTheme {
+        PaddingForPreview {
+            OutlinedTextField2()
         }
     }
 }
