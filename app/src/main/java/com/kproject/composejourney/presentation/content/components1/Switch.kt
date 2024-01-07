@@ -57,7 +57,6 @@ private fun Switch2() {
     )
 }
 
-
 @Preview(showBackground = true)
 @Composable
 private fun Preview1() {
