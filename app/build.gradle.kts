@@ -65,6 +65,9 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
 
+    // lifecycle-runtime-compose
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
+
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
     // Coil
