@@ -1,4 +1,4 @@
-package com.kproject.composejourney.presentation.content.components1
+package com.kproject.composejourney.presentation.content.components
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons

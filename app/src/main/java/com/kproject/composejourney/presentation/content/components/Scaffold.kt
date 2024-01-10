@@ -1,4 +1,4 @@
-package com.kproject.composejourney.presentation.content.components2
+package com.kproject.composejourney.presentation.content.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

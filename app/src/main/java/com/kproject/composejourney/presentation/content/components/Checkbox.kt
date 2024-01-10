@@ -1,4 +1,4 @@
-package com.kproject.composejourney.presentation.content.components1
+package com.kproject.composejourney.presentation.content.components
 
 import androidx.compose.material3.Checkbox
 import androidx.compose.runtime.Composable

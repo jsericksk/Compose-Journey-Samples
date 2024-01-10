@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import com.kproject.composejourney.presentation.content.components1.PaddingForPreview
+import com.kproject.composejourney.presentation.content.components.PaddingForPreview
 import com.kproject.composejourney.presentation.theme.MyAppTheme
 
 @Composable

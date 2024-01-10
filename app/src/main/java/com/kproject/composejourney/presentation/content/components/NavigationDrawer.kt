@@ -1,4 +1,4 @@
-package com.kproject.composejourney.presentation.content.components2
+package com.kproject.composejourney.presentation.content.components
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
