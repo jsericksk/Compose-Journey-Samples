@@ -1,9 +1,9 @@
 package com.kproject.composejourney.presentation.content.state
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -12,7 +12,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.kproject.composejourney.presentation.content.components.PaddingForPreview
@@ -34,31 +33,59 @@ private fun State1() {
     }
 }
 
+/**
+ * Stateful, pois text está sendo controlado internamente pela MyTextField().
+ * Dificulta a reutilização do componente com outros valores.
+ */
 @Composable
-private fun Custom(
-    modifier: Modifier = Modifier,
-    backgroundColor: Color = Color.Black
+private fun MyTextField(modifier: Modifier = Modifier) {
+    var text by remember { mutableStateOf("John") }
+    OutlinedTextField(
+        value = text,
+        onValueChange = { updatedText ->
+            text = updatedText
+        },
+        label = { Text(text = "Texto") },
+        shape = CircleShape,
+        modifier = modifier
+    )
+}
+
+/**
+ * Stateless, pois elevamos o estado principal do MyTextField().
+ * Facilita a reutilização, pois o estado será controlado pelo chamador da MyTextField().
+ */
+@Composable
+private fun MyTextField(
+    text: String,
+    onTextChange: (String) -> Unit,
+    modifier: Modifier = Modifier
 ) {
-    var name by remember { mutableStateOf("John") }
-    Box(
-        modifier = modifier.background(backgroundColor)
-    ) {
-        Text(
-            text = name,
-            fontSize = 22.sp,
-        )
-        Button(onClick = { name = "Mary" }) {
-            Text("Mudar nome")
+    OutlinedTextField(
+        value = text,
+        onValueChange = onTextChange,
+        label = { Text(text = "Texto") },
+        shape = CircleShape,
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview1() {
+    MyAppTheme {
+        PaddingForPreview {
+            State1()
         }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview3() {
+private fun Preview2() {
     MyAppTheme {
         PaddingForPreview {
-            State1()
+            MyTextField()
         }
     }
 }
