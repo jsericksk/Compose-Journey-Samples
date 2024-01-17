@@ -29,7 +29,7 @@ import com.kproject.composejourney.presentation.theme.MyAppTheme
 import kotlinx.coroutines.delay
 
 
-class ProfileDataSource {
+private class ProfileDataSource {
 
     suspend fun getProfileName(): String {
         delay(3000L)
@@ -37,7 +37,7 @@ class ProfileDataSource {
     }
 }
 
-enum class State {
+private enum class State {
     Loading,
     Success,
     Error
