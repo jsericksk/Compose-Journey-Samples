@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -108,4 +109,21 @@ fun MyAppTheme(
         shapes = shapes,
         content = content
     )
+}
+
+@Composable
+fun PreviewTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    // Dynamic color is available on Android 12+
+    dynamicColor: Boolean = false,
+    content: @Composable () -> Unit
+) {
+    MyAppTheme(
+        darkTheme = darkTheme,
+        dynamicColor = dynamicColor
+    ) {
+        Surface(color = MaterialTheme.colorScheme.background) {
+            content()
+        }
+    }
 }
