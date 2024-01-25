@@ -241,6 +241,16 @@ private fun CommonTextField(
 @Composable
 private fun Preview1() {
     PreviewTheme(darkTheme = false) {
+        RegisterScreen(
+            onNavigateToProfile = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview2() {
+    PreviewTheme(darkTheme = false) {
         RegisterScreenContent(
             onNavigateToProfile = {},
             uiState = RegisterUiState(),
