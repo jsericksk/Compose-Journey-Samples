@@ -63,7 +63,8 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
+    // Temporário, para resolver: https://stackoverflow.com/q/77877363
+    implementation("androidx.compose.material3:material3:1.2.0-rc01")
 
     // lifecycle-runtime-compose
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")

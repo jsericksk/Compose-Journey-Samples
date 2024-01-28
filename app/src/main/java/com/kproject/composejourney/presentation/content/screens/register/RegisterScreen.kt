@@ -55,7 +55,7 @@ fun RegisterScreen(
 }
 
 @Composable
-private fun RegisterScreen(
+fun RegisterScreen(
     onNavigateToProfile: (email: String) -> Unit
 ) {
     val viewModel: RegisterViewModel = viewModel()

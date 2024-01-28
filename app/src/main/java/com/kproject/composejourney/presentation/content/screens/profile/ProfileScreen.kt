@@ -30,6 +30,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -40,14 +41,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kproject.composejourney.presentation.theme.PreviewTheme
+
+@Composable
+fun ProfileScreen(email: String) {
+    val viewModel: ProfileViewModel = viewModel()
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    ProfileScreenContent(uiState = uiState)
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun ProfileScreen(
-    email: String,
-    uiState: ProfileUiState
-) {
+private fun ProfileScreenContent(uiState: ProfileUiState) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -164,8 +171,7 @@ private fun CenteredColumn(
 @Composable
 private fun Preview1() {
     PreviewTheme(darkTheme = false) {
-        ProfileScreen(
-            email = "johntitor@gmail.com",
+        ProfileScreenContent(
             uiState = ProfileUiState(
                 viewState = ViewState.Success,
                 username = "John Titor",
