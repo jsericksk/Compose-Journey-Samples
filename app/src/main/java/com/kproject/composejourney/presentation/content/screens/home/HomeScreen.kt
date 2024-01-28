@@ -1,4 +1,4 @@
-package com.kproject.composejourney.presentation.content.screens.register
+package com.kproject.composejourney.presentation.content.screens.home
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -8,14 +8,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
-import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
@@ -24,6 +21,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -32,8 +30,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -42,167 +38,147 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kproject.composejourney.presentation.theme.PreviewTheme
 
 @Composable
-fun RegisterScreen(
-    onNavigateToProfile: (email: String) -> Unit,
-    uiState: RegisterUiState,
-    onUiEvent: (RegisterUiEvent) -> Unit
+fun HomeScreen(
+    onNavigateToTracking: (code: String, name: String, cep: Int) -> Unit
 ) {
-   RegisterScreenContent(
-       onNavigateToProfile = onNavigateToProfile,
-       uiState = uiState,
-       onUiEvent = onUiEvent
-   )
-}
-
-@Composable
-fun RegisterScreen(
-    onNavigateToProfile: (email: String) -> Unit
-) {
-    val viewModel: RegisterViewModel = viewModel()
+    val viewModel: HomeViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-    RegisterScreenContent(
-        onNavigateToProfile = onNavigateToProfile,
+    HomeScreenContent(
+        onNavigateToTracking = {
+            onNavigateToTracking.invoke(uiState.code, uiState.firstName, uiState.cep)
+        },
         uiState = uiState,
         onUiEvent = viewModel::onUiEvent
     )
 }
 
 @Composable
-private fun RegisterScreenContent(
-    onNavigateToProfile: (email: String) -> Unit,
-    uiState: RegisterUiState,
-    onUiEvent: (RegisterUiEvent) -> Unit
+private fun HomeScreenContent(
+    uiState: HomeUiState,
+    onUiEvent: (HomeUiEvent) -> Unit,
+    onNavigateToTracking: () -> Unit
 ) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState())
             .padding(24.dp)
     ) {
         val verticalSpacing = 14.dp
         Text(
-            text = "Registrar-se",
+            text = "Rastreador",
             color = MaterialTheme.colorScheme.primary,
             fontSize = 34.sp,
             fontWeight = FontWeight.Bold
         )
         Spacer(Modifier.height(verticalSpacing + verticalSpacing))
         CommonTextField(
-            text = uiState.username,
+            text = uiState.code,
             onTextChange = {
-              onUiEvent.invoke(RegisterUiEvent.UsernameChanged(it))
+                onUiEvent.invoke(HomeUiEvent.CodeChanged(it))
             },
-            label = "Nome de usuário",
-            leadingIcon = Icons.Default.Person
+            label = "Código de rastreio",
+            leadingIcon = Icons.Default.Info
         )
         Spacer(Modifier.height(verticalSpacing))
         CommonTextField(
-            text = uiState.email,
+            text = uiState.firstName,
             onTextChange = {
-                onUiEvent.invoke(RegisterUiEvent.EmailChanged(it))
+                onUiEvent.invoke(HomeUiEvent.FirstNameChanged(it))
             },
-            label = "E-mail",
-            leadingIcon = Icons.Default.Email,
-            keyboardType = KeyboardType.Email
+            label = "Primeiro nome do destinatário",
+            leadingIcon = Icons.Default.Person,
         )
         Spacer(Modifier.height(verticalSpacing))
         CommonTextField(
-            text = uiState.password,
-            onTextChange = {
-                onUiEvent.invoke(RegisterUiEvent.PasswordChanged(it))
+            text = uiState.cepText,
+            onTextChange = { updatedCep ->
+                updatedCep.toIntOrNull()?.let { cep ->
+                    onUiEvent.invoke(HomeUiEvent.CepChanged(cep))
+                }
+                if (updatedCep.isBlank()) {
+                    onUiEvent.invoke(HomeUiEvent.CepChanged(UndefinedCep))
+                }
             },
-            label = "Senha",
-            leadingIcon = Icons.Default.Lock,
-            visualTransformation = PasswordVisualTransformation(),
-            keyboardType = KeyboardType.Password
-        )
-        Spacer(Modifier.height(verticalSpacing))
-        CommonTextField(
-            text = uiState.address,
-            onTextChange = {
-                onUiEvent.invoke(RegisterUiEvent.AddressChanged(it))
-            },
-            label = "Endereço",
-            leadingIcon = Icons.Default.LocationOn
+            label = "CEP",
+            leadingIcon = Icons.Default.LocationOn,
+            keyboardType = KeyboardType.Number
         )
         Spacer(Modifier.height(verticalSpacing + verticalSpacing))
         Button(
-            onClick = {
-                onNavigateToProfile.invoke(uiState.email)
-            },
+            onClick = onNavigateToTracking,
             contentPadding = PaddingValues(16.dp),
+            enabled = uiState.canNavigateToTrackingScreen,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Registrar-se")
+            Text("Rastrear")
         }
     }
 }
 
 @Composable
-private fun RegisterScreenWithoutStateHolder(
-    onNavigateToProfile: (email: String) -> Unit
-) {
-    var username by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var address by remember { mutableStateOf("") }
+private fun HomeScreenWithoutStateHolder(onNavigateToTracking: () -> Unit) {
+    var code by remember { mutableStateOf("") }
+    var firstName by remember { mutableStateOf("") }
+    var cepNumber by remember { mutableIntStateOf(UndefinedCep) }
+    val cepText: String = remember(cepNumber) {
+        if (cepNumber == UndefinedCep) "" else cepNumber.toString()
+    }
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState())
             .padding(24.dp)
     ) {
         val verticalSpacing = 14.dp
         Text(
-            text = "Registrar-se",
+            text = "Rastreador",
             color = MaterialTheme.colorScheme.primary,
             fontSize = 34.sp,
             fontWeight = FontWeight.Bold
         )
         Spacer(Modifier.height(verticalSpacing + verticalSpacing))
         CommonTextField(
-            text = username,
-            onTextChange = { username = it },
-            label = "Nome de usuário",
-            leadingIcon = Icons.Default.Person
+            text = code,
+            onTextChange = {
+                code = it
+            },
+            label = "Código de rastreio",
+            leadingIcon = Icons.Default.Info
         )
         Spacer(Modifier.height(verticalSpacing))
         CommonTextField(
-            text = email,
-            onTextChange = { email = it },
-            label = "E-mail",
-            leadingIcon = Icons.Default.Email,
-            keyboardType = KeyboardType.Email
+            text = firstName,
+            onTextChange = {
+                firstName = it
+            },
+            label = "Primeiro nome do destinatário",
+            leadingIcon = Icons.Default.Person,
         )
         Spacer(Modifier.height(verticalSpacing))
         CommonTextField(
-            text = password,
-            onTextChange = { password = it },
-            label = "Senha",
-            leadingIcon = Icons.Default.Lock,
-            visualTransformation = PasswordVisualTransformation(),
-            keyboardType = KeyboardType.Password
-        )
-        Spacer(Modifier.height(verticalSpacing))
-        CommonTextField(
-            text = address,
-            onTextChange = { address = it },
-            label = "Endereço",
-            leadingIcon = Icons.Default.LocationOn
+            text = cepText,
+            onTextChange = { updatedCep ->
+                updatedCep.toIntOrNull()?.let { cep ->
+                    cepNumber = cep
+                }
+                if (updatedCep.isBlank()) {
+                    cepNumber = UndefinedCep
+                }
+            },
+            label = "CEP",
+            leadingIcon = Icons.Default.LocationOn,
+            keyboardType = KeyboardType.Number
         )
         Spacer(Modifier.height(verticalSpacing + verticalSpacing))
         Button(
-            onClick = {
-                onNavigateToProfile.invoke(email)
-            },
+            onClick = onNavigateToTracking,
             contentPadding = PaddingValues(16.dp),
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Registrar-se")
+            Text("Rastrear")
         }
     }
 }
@@ -214,7 +190,6 @@ private fun CommonTextField(
     label: String,
     leadingIcon: ImageVector,
     modifier: Modifier = Modifier,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardType: KeyboardType = KeyboardType.Text
 ) {
     OutlinedTextField(
@@ -229,32 +204,33 @@ private fun CommonTextField(
                 contentDescription = null
             )
         },
-        visualTransformation = visualTransformation,
-        keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
-        shape = CircleShape,
+        shape = RoundedCornerShape(16.dp),
         singleLine = true,
+        keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
         modifier = modifier.fillMaxWidth()
     )
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun HomeScreenContentPreview() {
     PreviewTheme(darkTheme = false) {
-        RegisterScreen(
-            onNavigateToProfile = {}
+        HomeScreenContent(
+            uiState = HomeUiState(
+                code = "AMZ12345678",
+                firstName = "João",
+                cep = 1234689
+            ),
+            onUiEvent = {},
+            onNavigateToTracking = {},
         )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview2() {
+private fun HomeScreenWithoutStateHolderPreview() {
     PreviewTheme(darkTheme = false) {
-        RegisterScreenContent(
-            onNavigateToProfile = {},
-            uiState = RegisterUiState(),
-            onUiEvent = {}
-        )
+        HomeScreenWithoutStateHolder(onNavigateToTracking = {})
     }
 }
