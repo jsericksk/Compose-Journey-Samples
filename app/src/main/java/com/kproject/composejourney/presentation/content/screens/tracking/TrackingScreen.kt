@@ -41,6 +41,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kproject.composejourney.presentation.theme.PreviewTheme
 
@@ -53,8 +54,22 @@ fun TrackingScreen(
     val trackingViewModel: TrackingViewModel = viewModel()
     val uiState by trackingViewModel.uiState.collectAsStateWithLifecycle()
     LaunchedEffect(Unit) {
-        trackingViewModel.getTrackingInfo(code = code, cep = cep)
+        // trackingViewModel.getTrackingInfo(code = code, cep = cep)
     }
+    TrackingScreenContent(
+        uiState = uiState,
+        onNavigateBack = onNavigateBack
+    )
+}
+
+@Composable
+fun TrackingScreen(onNavigateBack: () -> Unit) {
+    val trackingViewModel = viewModel {
+        // Dependência: androidx.lifecycle:lifecycle-viewmodel-savedstate
+        val savedStateHandle = createSavedStateHandle()
+        TrackingViewModel(savedStateHandle)
+    }
+    val uiState by trackingViewModel.uiState.collectAsStateWithLifecycle()
     TrackingScreenContent(
         uiState = uiState,
         onNavigateBack = onNavigateBack

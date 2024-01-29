@@ -66,8 +66,11 @@ dependencies {
     // Temporário, para resolver: https://stackoverflow.com/q/77877363
     implementation("androidx.compose.material3:material3:1.2.0-rc01")
 
+    val lifecycleVersion = "2.7.0"
     // lifecycle-runtime-compose
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycleVersion")
+    // Saved state module para ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion")
 
     // Constraintlayout Compose
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
