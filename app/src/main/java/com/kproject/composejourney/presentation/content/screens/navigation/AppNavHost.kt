@@ -16,9 +16,9 @@ fun AppNavHost() {
         // HomeScreen
         composable(route = Screen.HomeScreen.route) {
             HomeScreen(
-                onNavigateToTracking = { code, firstName, cep ->
+                onNavigateToTracking = { code, cep ->
                     navController.navigate(
-                        Screen.TrackingScreen.routeWithArgs(code, firstName, cep)
+                        Screen.TrackingScreen.routeWithArgs(code, cep)
                     )
                 },
             )

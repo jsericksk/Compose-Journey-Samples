@@ -14,9 +14,6 @@ class HomeViewModel : ViewModel() {
             is HomeUiEvent.CodeChanged -> {
                 _uiState.update { it.copy(code = event.code) }
             }
-            is HomeUiEvent.FirstNameChanged -> {
-                _uiState.update { it.copy(firstName = event.firstName) }
-            }
             is HomeUiEvent.CepChanged -> {
                 _uiState.update { it.copy(cep = event.cep) }
             }
