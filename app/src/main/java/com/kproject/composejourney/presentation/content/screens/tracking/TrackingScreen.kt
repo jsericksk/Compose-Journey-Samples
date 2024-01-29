@@ -65,7 +65,7 @@ fun TrackingScreen(
 @Composable
 fun TrackingScreen(onNavigateBack: () -> Unit) {
     val trackingViewModel = viewModel {
-        // Dependência: androidx.lifecycle:lifecycle-viewmodel-savedstate
+        // Dependência: androidx.lifecycle:lifecycle-viewmodel-compose
         val savedStateHandle = createSavedStateHandle()
         TrackingViewModel(savedStateHandle)
     }
@@ -85,7 +85,7 @@ private fun TrackingScreenContent(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text(text = "Informações de Rastreio") },
+                title = { Text(text = "Rastreamento") },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     titleContentColor = MaterialTheme.colorScheme.onPrimary,
@@ -146,29 +146,29 @@ private fun MainContent(uiState: TrackingUiState) {
                 modifier = Modifier.padding(24.dp)
             ) {
                 Text(
+                    text = "Código de rastreio",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Normal
+                )
+                Spacer(Modifier.height(2.dp))
+                Text(
                     text = uiState.code,
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center
                 )
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(16.dp))
                 Text(
-                    text = "Código de rastreio",
+                    text = "CEP",
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Normal
                 )
-                Spacer(Modifier.height(16.dp))
+                Spacer(Modifier.height(2.dp))
                 Text(
                     text = uiState.cep.toString(),
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center
-                )
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    text = "CEP",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Normal
                 )
             }
         }

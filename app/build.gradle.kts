@@ -69,10 +69,10 @@ dependencies {
     val lifecycleVersion = "2.7.0"
     // lifecycle-runtime-compose
     implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycleVersion")
-    // Saved state module para ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion")
+    // ViewModel utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion")
 
-    // Constraintlayout Compose
+    // ConstraintLayout Compose
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
     // Navigation Compose
