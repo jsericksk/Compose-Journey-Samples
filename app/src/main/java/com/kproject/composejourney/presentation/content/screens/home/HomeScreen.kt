@@ -198,7 +198,7 @@ private fun HomeScreenContentPreview() {
     PreviewTheme(darkTheme = false) {
         HomeScreenContent(
             uiState = HomeUiState(
-                code = "AMZ12345678",
+                code = "AMZ123456789",
                 cep = 1234689
             ),
             onUiEvent = {},
