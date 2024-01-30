@@ -13,7 +13,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -41,14 +40,14 @@ import com.kproject.composejourney.presentation.theme.PreviewTheme
 fun HomeScreen(
     onNavigateToTracking: (code: String, cep: Int) -> Unit
 ) {
-    val viewModel: HomeViewModel = viewModel()
-    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val homeViewModel: HomeViewModel = viewModel()
+    val uiState by homeViewModel.uiState.collectAsStateWithLifecycle()
     HomeScreenContent(
         onNavigateToTracking = {
             onNavigateToTracking.invoke(uiState.code, uiState.cep)
         },
         uiState = uiState,
-        onUiEvent = viewModel::onUiEvent
+        onUiEvent = homeViewModel::onUiEvent
     )
 }
 
@@ -109,7 +108,7 @@ private fun HomeScreenContent(
 }
 
 @Composable
-private fun HomeScreenWithoutStateHolder(onNavigateToTracking: () -> Unit) {
+private fun HomeScreenWithoutStateHolder(onNavigateToTracking: (code: String, cep: Int) -> Unit) {
     var code by remember { mutableStateOf("") }
     var cepNumber by remember { mutableIntStateOf(UndefinedCep) }
     val cepText: String = remember(cepNumber) {
@@ -155,7 +154,9 @@ private fun HomeScreenWithoutStateHolder(onNavigateToTracking: () -> Unit) {
         )
         Spacer(Modifier.height(verticalSpacing + verticalSpacing))
         Button(
-            onClick = onNavigateToTracking,
+            onClick = {
+                onNavigateToTracking.invoke(code, cepNumber)
+            },
             contentPadding = PaddingValues(16.dp),
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -211,6 +212,6 @@ private fun HomeScreenContentPreview() {
 @Composable
 private fun HomeScreenWithoutStateHolderPreview() {
     PreviewTheme(darkTheme = false) {
-        HomeScreenWithoutStateHolder(onNavigateToTracking = {})
+        HomeScreenWithoutStateHolder(onNavigateToTracking = { _, _ -> })
     }
 }
