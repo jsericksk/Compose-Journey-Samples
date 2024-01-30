@@ -2,12 +2,13 @@ package com.kproject.composejourney.presentation.content.screens.home
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
 class HomeViewModel : ViewModel() {
-    private var _uiState = MutableStateFlow(HomeUiState())
-    val uiState = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow(HomeUiState())
+    val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
 
     fun onUiEvent(event: HomeUiEvent) {
         when (event) {

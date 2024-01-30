@@ -7,14 +7,15 @@ import com.kproject.composejourney.presentation.content.screens.navigation.TRACK
 import com.kproject.composejourney.presentation.content.screens.navigation.TRACKING_CODE
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 /*
 class TrackingViewModel : ViewModel() {
-    private var _uiState = MutableStateFlow(TrackingUiState())
-    val uiState = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow(TrackingUiState())
+    val uiState: StateFlow<TrackingUiState> = _uiState.asStateFlow()
 
     fun getTrackingInfo(
         code: String,
@@ -36,8 +37,8 @@ class TrackingViewModel : ViewModel() {
 class TrackingViewModel(
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    private var _uiState = MutableStateFlow(TrackingUiState())
-    val uiState = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow(TrackingUiState())
+    val uiState: StateFlow<TrackingUiState> = _uiState.asStateFlow()
 
     init {
         _uiState.update {
