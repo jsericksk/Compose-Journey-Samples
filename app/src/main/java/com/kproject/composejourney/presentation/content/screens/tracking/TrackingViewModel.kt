@@ -1,10 +1,7 @@
 package com.kproject.composejourney.presentation.content.screens.tracking
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kproject.composejourney.presentation.content.screens.navigation.TRACKING_CEP
-import com.kproject.composejourney.presentation.content.screens.navigation.TRACKING_CODE
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,7 +9,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-/*
 class TrackingViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(TrackingUiState())
     val uiState: StateFlow<TrackingUiState> = _uiState.asStateFlow()
@@ -21,19 +17,11 @@ class TrackingViewModel : ViewModel() {
         code: String,
         cep: Int
     ) {
-        viewModelScope.launch {
-            delay(2500)
-            _uiState.update {
-                it.copy(
-                    viewState = ViewState.Success,
-                    code = code,
-                    cep = cep
-                )
-            }
-        }
+        _uiState.update { it.copy(code = code, cep = cep) }
     }
-}*/
+}
 
+/**
 class TrackingViewModel(
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
@@ -47,13 +35,5 @@ class TrackingViewModel(
                 cep = savedStateHandle.get<Int>(TRACKING_CEP) ?: -1,
             )
         }
-        getTrackingInfo()
     }
-
-    private fun getTrackingInfo() {
-        viewModelScope.launch {
-            delay(2500)
-            _uiState.update { it.copy(viewState = ViewState.Success) }
-        }
-    }
-}
+}*/
