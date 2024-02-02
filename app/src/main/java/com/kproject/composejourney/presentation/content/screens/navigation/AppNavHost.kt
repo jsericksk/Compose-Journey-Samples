@@ -27,7 +27,7 @@ fun AppNavHost() {
             )
         }
 
-        // TrackingScreen
+        /** // TrackingScreen
         composable(
             route = Screen.TrackingScreen.route,
             arguments = listOf(
@@ -39,14 +39,16 @@ fun AppNavHost() {
                 }
             ),
         ) { navBackStackEntry ->
-            TrackingScreen(
-                code = navBackStackEntry.arguments!!.getString(TRACKING_CODE)!!,
-                cep = navBackStackEntry.arguments!!.getInt(TRACKING_CEP),
-                onNavigateBack = { navController.popBackStack() }
-            )
-        }
+            navBackStackEntry.arguments?.let { bundle ->
+                TrackingScreen(
+                    code = bundle.getString(TRACKING_CODE) ?: "",
+                    cep = bundle.getInt(TRACKING_CEP),
+                    onNavigateBack = { navController.popBackStack() }
+                )
+            }
+        }*/
 
-        /**
+
         // TrackingScreen
         composable(
             route = Screen.TrackingScreen.route,
@@ -57,9 +59,9 @@ fun AppNavHost() {
                 navArgument(name = TRACKING_CEP) {
                     type = NavType.IntType
                 }
-            ),
+            )
         ) {
             TrackingScreen(onNavigateBack = { navController.popBackStack() })
-        }*/
+        }
     }
 }
