@@ -3,6 +3,8 @@ package com.kproject.composejourney.presentation.content.screens.navigation
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.Lifecycle
+import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -23,12 +25,14 @@ fun AppNavHost() {
         // HomeScreen
         composable(
             route = Screen.HomeScreen.route
-        ) {
+        ) { navBackStackEntry ->
             HomeScreen(
                 onNavigateToTracking = { code, cep ->
-                    navController.navigate(
-                        Screen.TrackingScreen.routeWithArgs(code, cep)
-                    )
+                    if (navBackStackEntry.canNavigate()) {
+                        navController.navigate(
+                            Screen.TrackingScreen.routeWithArgs(code, cep)
+                        )
+                    }
                 },
             )
         }
@@ -78,8 +82,17 @@ fun AppNavHost() {
                     animationSpec = tween(durationMillis = ANIMATION_DURATION)
                 )
             }
-        ) {
-            TrackingScreen(onNavigateBack = { navController.popBackStack() })
+        ) { navBackStackEntry ->
+            TrackingScreen(
+                onNavigateBack = {
+                    if (navBackStackEntry.canNavigate()) {
+                        navController.popBackStack()
+                    }
+                }
+            )
         }
     }
 }
+
+private fun NavBackStackEntry.canNavigate() =
+        this.lifecycle.currentState == Lifecycle.State.RESUMED
