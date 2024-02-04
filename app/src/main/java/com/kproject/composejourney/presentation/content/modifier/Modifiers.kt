@@ -1,19 +1,18 @@
 package com.kproject.composejourney.presentation.content.modifier
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.kproject.composejourney.presentation.theme.MyAppTheme
 
 @Composable
@@ -61,6 +60,60 @@ private fun Item3() {
     }
 }
 
+@Composable
+private fun MarginAndPadding1() {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .background(Color.Black)
+            .width(150.dp)
+    ) {
+        Text(
+            text = "Texto 1",
+            color = Color.White,
+            modifier = Modifier
+                .padding(6.dp) // Margin
+                .background(Color(0xFF004D40))
+                .padding(6.dp) // Padding
+        )
+        Text(
+            text = "Texto 2",
+            color = Color.White,
+            modifier = Modifier
+                .padding(6.dp) // Margin
+                .background(Color(0xFF004D40))
+                .padding(6.dp) // Padding
+        )
+    }
+}
+
+@Composable
+private fun MarginAndPadding2() {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .background(Color.Black)
+            .width(150.dp)
+    ) {
+        Text(
+            text = "Texto 1",
+            color = Color.White,
+            modifier = Modifier
+                .padding(bottom = 6.dp) // Margin
+                .background(Color(0xFF004D40))
+                .padding(horizontal = 4.dp, vertical = 8.dp) // Padding
+        )
+        Text(
+            text = "Texto 2",
+            color = Color.White,
+            modifier = Modifier
+                .padding(top = 6.dp) // Margin
+                .background(Color(0xFF004D40))
+                .padding(horizontal = 4.dp, vertical = 8.dp) // Padding
+        )
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 private fun Preview1() {
@@ -82,5 +135,21 @@ private fun Preview2() {
 private fun Preview3() {
     MyAppTheme {
         Item3()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview4() {
+    MyAppTheme {
+        MarginAndPadding1()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview5() {
+    MyAppTheme {
+        MarginAndPadding2()
     }
 }
