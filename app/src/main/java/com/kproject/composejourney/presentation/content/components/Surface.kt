@@ -56,7 +56,7 @@ private fun Surface() {
 }
 
 @Composable
-fun LoginScreen(onChangeTheme: () -> Unit) {
+fun LoginScreen(onThemeChange: () -> Unit) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     Column(
@@ -92,7 +92,7 @@ fun LoginScreen(onChangeTheme: () -> Unit) {
             Text(text = "Login")
         }
         Spacer(Modifier.height(18.dp))
-        IconButton(onClick = onChangeTheme) {
+        IconButton(onClick = onThemeChange) {
             Icon(
                 painter = painterResource(id = R.drawable.baseline_dark_mode_24),
                 contentDescription = null,
@@ -115,6 +115,6 @@ private fun Preview1() {
 @Composable
 private fun Preview2() {
     MyAppTheme {
-        LoginScreen(onChangeTheme = {})
+        LoginScreen(onThemeChange = {})
     }
 }
