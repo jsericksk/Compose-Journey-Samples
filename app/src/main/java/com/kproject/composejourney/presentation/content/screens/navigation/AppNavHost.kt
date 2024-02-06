@@ -28,7 +28,7 @@ fun AppNavHost() {
         ) { navBackStackEntry ->
             HomeScreen(
                 onNavigateToTracking = { code, cep ->
-                    if (navBackStackEntry.canNavigate()) {
+                    if (navBackStackEntry.lifecycleIsResumed()) {
                         navController.navigate(
                             Screen.TrackingScreen.routeWithArgs(code, cep)
                         )
@@ -85,7 +85,7 @@ fun AppNavHost() {
         ) { navBackStackEntry ->
             TrackingScreen(
                 onNavigateBack = {
-                    if (navBackStackEntry.canNavigate()) {
+                    if (navBackStackEntry.lifecycleIsResumed()) {
                         navController.popBackStack()
                     }
                 }
@@ -94,5 +94,5 @@ fun AppNavHost() {
     }
 }
 
-private fun NavBackStackEntry.canNavigate() =
+private fun NavBackStackEntry.lifecycleIsResumed() =
         this.lifecycle.currentState == Lifecycle.State.RESUMED
