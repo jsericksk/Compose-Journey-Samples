@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.drawWithCache
+import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -274,6 +275,41 @@ private fun Path3() {
 }
 
 @Composable
+private fun DrawWithContent() {
+    Column(modifier = Modifier.padding(12.dp)) {
+        Text(
+            text = "Jetpack Compose Journey",
+            color = Color.Black,
+            fontSize = 24.sp,
+            modifier = Modifier.drawWithContent {
+                drawContent()
+                drawRect(
+                    color = Color.Red,
+                    topLeft = Offset(x = 0f, y = size.height / 2),
+                    size = Size(width = size.width, height = 5.dp.toPx()),
+                    style = Fill
+                )
+            }
+        )
+        Spacer(Modifier.height(12.dp))
+        Text(
+            text = "Jetpack Compose Journey",
+            color = Color.Black,
+            fontSize = 24.sp,
+            modifier = Modifier.drawWithContent {
+                drawRect(
+                    color = Color.Red,
+                    topLeft = Offset(x = 0f, y = size.height / 2),
+                    size = Size(width = size.width, height = 5.dp.toPx()),
+                    style = Fill
+                )
+                drawContent()
+            }
+        )
+    }
+}
+
+@Composable
 private fun LoginScreen() {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -428,6 +464,14 @@ private fun Path2Preview() {
 private fun Path3Preview() {
     PreviewTheme {
         Path3()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun DrawWithContentPreview() {
+    PreviewTheme {
+        DrawWithContent()
     }
 }
 
