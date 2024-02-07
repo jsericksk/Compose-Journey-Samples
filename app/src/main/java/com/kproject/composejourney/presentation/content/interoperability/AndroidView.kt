@@ -37,7 +37,7 @@ private fun ComposeTextView() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview() {
+private fun ComposeTextViewPreview() {
     MyAppTheme {
         PaddingForPreview {
             ComposeTextView()

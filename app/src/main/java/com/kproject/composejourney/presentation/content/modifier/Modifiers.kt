@@ -116,7 +116,7 @@ private fun MarginAndPadding2() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun Item1Preview() {
     MyAppTheme {
         Item1()
     }
@@ -124,7 +124,7 @@ private fun Preview1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview2() {
+private fun Item2Preview() {
     MyAppTheme {
         Item2()
     }
@@ -132,7 +132,7 @@ private fun Preview2() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview3() {
+private fun Item3Preview() {
     MyAppTheme {
         Item3()
     }
@@ -140,7 +140,7 @@ private fun Preview3() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview4() {
+private fun MarginAndPadding1Preview() {
     MyAppTheme {
         MarginAndPadding1()
     }
@@ -148,7 +148,7 @@ private fun Preview4() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview5() {
+private fun MarginAndPadding2Preview() {
     MyAppTheme {
         MarginAndPadding2()
     }

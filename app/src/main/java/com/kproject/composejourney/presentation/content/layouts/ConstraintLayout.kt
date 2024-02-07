@@ -125,7 +125,7 @@ private fun ConstraintLayoutBox() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun ConstraintLayoutColumnPreview() {
     MyAppTheme {
         ConstraintLayoutColumn()
     }
@@ -133,7 +133,7 @@ private fun Preview1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview2() {
+private fun ConstraintLayoutRowPreview() {
     MyAppTheme {
         ConstraintLayoutRow()
     }
@@ -141,7 +141,7 @@ private fun Preview2() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview3() {
+private fun ConstraintLayoutBoxPreview() {
     MyAppTheme {
         ConstraintLayoutBox()
     }

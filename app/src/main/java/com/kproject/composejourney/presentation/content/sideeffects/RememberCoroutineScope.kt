@@ -48,7 +48,7 @@ private fun MyHorizontalPager() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun MyHorizontalPagerPreview() {
     MyAppTheme {
         MyHorizontalPager()
     }

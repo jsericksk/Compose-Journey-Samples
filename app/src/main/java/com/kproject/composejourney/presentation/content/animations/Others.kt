@@ -82,7 +82,7 @@ private fun Info() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun InfoPreview() {
     PreviewTheme(darkTheme = false) {
         Info()
     }

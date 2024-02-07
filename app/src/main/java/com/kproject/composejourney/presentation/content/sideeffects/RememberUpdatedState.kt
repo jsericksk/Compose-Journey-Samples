@@ -31,6 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kproject.composejourney.presentation.theme.MyAppTheme
+import com.kproject.composejourney.presentation.theme.PreviewTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
@@ -138,13 +139,8 @@ private fun FileDownload(
     uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
-private fun Preview1() {
-    MyAppTheme(darkTheme = true) {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
-        ) {
-            DownloadScreen()
-        }
+private fun DownloadScreenPreview() {
+    PreviewTheme(darkTheme = true) {
+        DownloadScreen()
     }
 }

@@ -193,7 +193,7 @@ private fun BasicTextField2() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun TextPreview() {
     MyAppTheme {
         Text()
     }
@@ -201,7 +201,7 @@ private fun Preview1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview2() {
+private fun LongTextPreview() {
     MyAppTheme {
         LongText()
     }
@@ -209,7 +209,7 @@ private fun Preview2() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview3() {
+private fun TextFieldPreview() {
     MyAppTheme {
         PaddingForPreview {
             TextField()
@@ -219,7 +219,7 @@ private fun Preview3() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview4() {
+private fun TextField2Preview() {
     MyAppTheme {
         PaddingForPreview {
             TextField2()
@@ -229,7 +229,7 @@ private fun Preview4() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview5() {
+private fun OutlinedTextFieldPreview() {
     MyAppTheme {
         PaddingForPreview {
             OutlinedTextField()
@@ -239,7 +239,7 @@ private fun Preview5() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview6() {
+private fun OutlinedTextField2Preview() {
     MyAppTheme {
         PaddingForPreview {
             OutlinedTextField2()

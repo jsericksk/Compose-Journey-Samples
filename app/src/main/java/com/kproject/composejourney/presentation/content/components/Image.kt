@@ -88,7 +88,7 @@ private fun Image3() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun Icon1Preview() {
     MyAppTheme {
         PaddingForPreview(padding = 4.dp) {
             Icon1()
@@ -98,7 +98,7 @@ private fun Preview1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview2() {
+private fun Icon2Preview() {
     MyAppTheme {
         PaddingForPreview(padding = 4.dp) {
             Icon2()
@@ -108,7 +108,7 @@ private fun Preview2() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview3() {
+private fun Image1Preview() {
     MyAppTheme {
         Image1()
     }
@@ -116,7 +116,7 @@ private fun Preview3() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview4() {
+private fun Image2Preview() {
     MyAppTheme {
         PaddingForPreview(padding = 4.dp) {
             Image2()
@@ -126,7 +126,7 @@ private fun Preview4() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview5() {
+private fun Image3Preview() {
     MyAppTheme {
         Image3()
     }

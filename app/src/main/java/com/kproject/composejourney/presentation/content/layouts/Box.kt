@@ -86,7 +86,7 @@ private fun VideoItem() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun BoxExamplePreview() {
     MyAppTheme {
         BoxExample()
     }
@@ -94,7 +94,7 @@ private fun Preview1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview2() {
+private fun VideoItemPreview() {
     MyAppTheme {
         VideoItem()
     }

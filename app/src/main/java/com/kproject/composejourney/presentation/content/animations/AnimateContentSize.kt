@@ -95,7 +95,7 @@ private const val loremIpsumText =
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun InfoCardPreview() {
     PreviewTheme(darkTheme = false) {
         InfoCard()
     }

@@ -27,7 +27,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kproject.composejourney.R
-import com.kproject.composejourney.presentation.theme.MyAppTheme
+import com.kproject.composejourney.presentation.theme.PreviewTheme
 
 @Composable
 private fun SelectableImage() {
@@ -64,8 +64,8 @@ private fun SelectableImage() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview() {
-    MyAppTheme {
+private fun SelectableImagePreview() {
+    PreviewTheme {
         SelectableImage()
     }
 }

@@ -145,7 +145,7 @@ private fun ProfileColumnCustomAlignment() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun ProfileNoLayoutPreview() {
     MyAppTheme {
         ProfileNoLayout()
     }
@@ -153,7 +153,7 @@ private fun Preview1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview2() {
+private fun ProfileColumnPreview() {
     MyAppTheme {
         ProfileColumn()
     }
@@ -161,7 +161,7 @@ private fun Preview2() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview3() {
+private fun ProfileColumnHorizontalStartPreview() {
     MyAppTheme {
         ProfileColumnHorizontalStart()
     }
@@ -169,7 +169,7 @@ private fun Preview3() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview4() {
+private fun ProfileColumnCenterHorizontallyPreview() {
     MyAppTheme {
         ProfileColumnCenterHorizontally()
     }
@@ -177,7 +177,7 @@ private fun Preview4() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview5() {
+private fun ProfileColumnHorizontalEndPreview() {
     MyAppTheme {
         ProfileColumnHorizontalEnd()
     }
@@ -185,7 +185,7 @@ private fun Preview5() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview6() {
+private fun ProfileColumnArrangementTopPreview() {
     MyAppTheme {
         ProfileColumnArrangementTop()
     }
@@ -193,7 +193,7 @@ private fun Preview6() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview7() {
+private fun ProfileColumnArrangementCenterPreview() {
     MyAppTheme {
         ProfileColumnArrangementCenter()
     }
@@ -201,7 +201,7 @@ private fun Preview7() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview8() {
+private fun ProfileColumnArrangementBottomPreview() {
     MyAppTheme {
         ProfileColumnArrangementBottom()
     }
@@ -209,7 +209,7 @@ private fun Preview8() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview9() {
+private fun ProfileColumnArrangementSpaceBetweenPreview() {
     MyAppTheme {
         ProfileColumnArrangementSpaceBetween()
     }
@@ -217,7 +217,7 @@ private fun Preview9() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview10() {
+private fun ProfileColumnCenterPreview() {
     MyAppTheme {
         ProfileColumnCenter()
     }
@@ -225,7 +225,7 @@ private fun Preview10() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview11() {
+private fun ProfileColumnCustomAlignmentPreview() {
     MyAppTheme {
         ProfileColumnCustomAlignment()
     }

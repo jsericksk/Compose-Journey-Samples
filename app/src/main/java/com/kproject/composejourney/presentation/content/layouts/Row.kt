@@ -81,7 +81,7 @@ private fun ProfileRowCenter() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun ProfileRowPreview() {
     MyAppTheme {
         ProfileRow()
     }
@@ -89,7 +89,7 @@ private fun Preview1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview2() {
+private fun ProfileRowHorizontalStartPreview() {
     MyAppTheme {
         ProfileRowHorizontalStart()
     }
@@ -97,7 +97,7 @@ private fun Preview2() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview3() {
+private fun ProfileRowHorizontalCenterPreview() {
     MyAppTheme {
         ProfileRowHorizontalCenter()
     }
@@ -105,7 +105,7 @@ private fun Preview3() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview4() {
+private fun ProfileRowHorizontalEndPreview() {
     MyAppTheme {
         ProfileRowHorizontalEnd()
     }
@@ -113,7 +113,7 @@ private fun Preview4() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview5() {
+private fun ProfileRowHorizontalSpaceBetweenPreview() {
     MyAppTheme {
         ProfileRowHorizontalSpaceBetween()
     }
@@ -121,7 +121,7 @@ private fun Preview5() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview6() {
+private fun ProfileRowHorizontalSpaceEvenlyPreview() {
     MyAppTheme {
         ProfileRowHorizontalSpaceEvenly()
     }
@@ -129,7 +129,7 @@ private fun Preview6() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview7() {
+private fun ProfileRowCenterPreview() {
     MyAppTheme {
         ProfileRowCenter()
     }

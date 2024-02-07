@@ -19,8 +19,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -36,7 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kproject.composejourney.R
-import com.kproject.composejourney.presentation.theme.MyAppTheme
+import com.kproject.composejourney.presentation.theme.PreviewTheme
 
 @Composable
 private fun ProfileScreen() {
@@ -145,10 +143,8 @@ private enum class State {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
-    MyAppTheme(darkTheme = false) {
-        Surface(color = MaterialTheme.colorScheme.background) {
-            ProfileScreen()
-        }
+private fun ProfileScreenPreview() {
+    PreviewTheme(darkTheme = false) {
+        ProfileScreen()
     }
 }

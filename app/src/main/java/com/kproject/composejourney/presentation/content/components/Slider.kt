@@ -55,7 +55,7 @@ private fun RangeSlider() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun Slider1Preview() {
     MyAppTheme {
         PaddingForPreview {
             Slider1()
@@ -65,7 +65,7 @@ private fun Preview1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview2() {
+private fun RangeSliderPreview() {
     MyAppTheme {
         PaddingForPreview {
             RangeSlider()

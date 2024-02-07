@@ -59,7 +59,7 @@ private fun Switch2() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun Switch1Preview() {
     MyAppTheme {
         PaddingForPreview {
             Switch1()
@@ -70,7 +70,7 @@ private fun Preview1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview2() {
+private fun Switch2Preview() {
     MyAppTheme {
         PaddingForPreview {
             Switch2()

@@ -22,7 +22,7 @@ private fun Checkbox1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun Checkbox1Preview() {
     MyAppTheme {
         PaddingForPreview {
             Checkbox1()

@@ -105,7 +105,7 @@ fun LoginScreen(onThemeChange: () -> Unit) {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun SurfacePreview() {
     MyAppTheme(darkTheme = true) {
         Surface()
     }
@@ -113,7 +113,7 @@ private fun Preview1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview2() {
+private fun LoginScreenPreview() {
     MyAppTheme {
         LoginScreen(onThemeChange = {})
     }

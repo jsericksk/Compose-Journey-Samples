@@ -41,7 +41,7 @@ private fun LoadingAnimation() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun LoadingAnimationPreview() {
     PreviewTheme(darkTheme = false) {
         LoadingAnimation()
     }

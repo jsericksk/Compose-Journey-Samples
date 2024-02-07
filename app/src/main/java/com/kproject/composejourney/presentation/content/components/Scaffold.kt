@@ -26,7 +26,7 @@ import com.kproject.composejourney.presentation.theme.MyAppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun Scaffold1() {
+private fun Scaffold() {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -78,8 +78,8 @@ private fun Scaffold1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun ScaffoldPreview() {
     MyAppTheme {
-        Scaffold1()
+        Scaffold()
     }
 }

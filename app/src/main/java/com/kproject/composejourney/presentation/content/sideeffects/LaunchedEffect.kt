@@ -107,7 +107,7 @@ private fun CountdownTimer() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun ProfilePreview() {
     MyAppTheme {
         Profile()
     }
@@ -115,7 +115,7 @@ private fun Preview1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview() {
+private fun CountdownTimerPreview() {
     MyAppTheme {
         CountdownTimer()
     }

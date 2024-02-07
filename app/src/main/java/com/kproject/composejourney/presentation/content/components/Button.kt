@@ -75,7 +75,7 @@ private fun CustomButton() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun ButtonPreview() {
     MyAppTheme {
         PaddingForPreview(padding = 4.dp) {
             Button()
@@ -85,7 +85,7 @@ private fun Preview1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview2() {
+private fun FilledTonalButtonPreview() {
     MyAppTheme {
         PaddingForPreview(padding = 4.dp) {
             FilledTonalButton()
@@ -95,7 +95,7 @@ private fun Preview2() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview3() {
+private fun OutlinedButtonPreview() {
     MyAppTheme {
         PaddingForPreview(padding = 4.dp) {
             OutlinedButton()
@@ -105,7 +105,7 @@ private fun Preview3() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview4() {
+private fun ElevatedButtonPreview() {
     MyAppTheme {
         PaddingForPreview(padding = 4.dp) {
             ElevatedButton()
@@ -115,7 +115,7 @@ private fun Preview4() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview5() {
+private fun TextButtonPreview() {
     MyAppTheme {
         PaddingForPreview(padding = 4.dp) {
             TextButton()
@@ -125,7 +125,7 @@ private fun Preview5() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview6() {
+private fun CustomButtonPreview() {
     MyAppTheme {
         PaddingForPreview(padding = 4.dp) {
             CustomButton()

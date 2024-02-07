@@ -109,7 +109,7 @@ private fun Card3() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun Card1Preview() {
     MyAppTheme {
         PaddingForPreview {
             Card1()
@@ -119,7 +119,7 @@ private fun Preview1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview2() {
+private fun Card2Preview() {
     MyAppTheme {
         PaddingForPreview {
             Card2()
@@ -129,7 +129,7 @@ private fun Preview2() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview3() {
+private fun Card3Preview() {
     MyAppTheme {
         PaddingForPreview {
             Card3()

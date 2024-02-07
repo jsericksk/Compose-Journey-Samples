@@ -167,7 +167,7 @@ private fun HomeScreen() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun HomeScreenPreview() {
     MyAppTheme {
         HomeScreen()
     }

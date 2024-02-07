@@ -108,7 +108,7 @@ private fun ImageItem(
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-private fun Preview1() {
+private fun ImageScreenPreview() {
     MyAppTheme(darkTheme = false) {
         ImageScreen()
     }

@@ -150,7 +150,7 @@ private fun MyTextField(
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview1() {
+private fun State1Preview() {
     PreviewTheme {
         PaddingForPreview {
             State1()
@@ -160,7 +160,7 @@ private fun Preview1() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview2() {
+private fun MyTextFieldPreview() {
     PreviewTheme {
         PaddingForPreview {
             MyTextField()
@@ -170,7 +170,7 @@ private fun Preview2() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview3() {
+private fun CaptionPreview() {
     PreviewTheme(darkTheme = false) {
         Caption()
     }
