@@ -26,6 +26,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,34 +35,36 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.kproject.composejourney.R
 import com.kproject.composejourney.presentation.theme.PreviewTheme
 
 @Composable
 fun TrackingScreen(
     code: String,
     cep: Int,
-    onNavigateBack: () -> Unit
+    onNavigateBack: () -> Unit,
+    trackingViewModel: TrackingViewModel = viewModel()
 ) {
-    val trackingViewModel: TrackingViewModel = viewModel()
     val uiState by trackingViewModel.uiState.collectAsStateWithLifecycle()
     LaunchedEffect(Unit) {
         // trackingViewModel.getTrackingInfo(code = code, cep = cep)
     }
-    TrackingScreenContent(
+    TrackingScreen(
         uiState = uiState,
         onNavigateBack = onNavigateBack
     )
 }
 
 @Composable
-fun TrackingScreen(onNavigateBack: () -> Unit) {
-    val trackingViewModel = viewModel { 
-        // Dependência: androidx.lifecycle:lifecycle-viewmodel-compose
+fun TrackingScreen(
+    onNavigateBack: () -> Unit,
+    trackingViewModel: TrackingViewModel = viewModel {
         val savedStateHandle = createSavedStateHandle()
         TrackingViewModel(savedStateHandle)
     }
+) {
     val uiState by trackingViewModel.uiState.collectAsStateWithLifecycle()
-    TrackingScreenContent(
+    TrackingScreen(
         uiState = uiState,
         onNavigateBack = onNavigateBack
     )
@@ -69,14 +72,14 @@ fun TrackingScreen(onNavigateBack: () -> Unit) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun TrackingScreenContent(
+private fun TrackingScreen(
     uiState: TrackingUiState,
     onNavigateBack: () -> Unit
 ) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text(text = "Rastreamento") },
+                title = { Text(text = stringResource(id = R.string.tracking)) },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     titleContentColor = MaterialTheme.colorScheme.onPrimary,
@@ -121,7 +124,7 @@ private fun MainContent(
                 modifier = Modifier.padding(24.dp)
             ) {
                 Text(
-                    text = "Código de rastreio",
+                    text = stringResource(id = R.string.tracking_code),
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Normal
                 )
@@ -134,7 +137,7 @@ private fun MainContent(
                 )
                 Spacer(Modifier.height(16.dp))
                 Text(
-                    text = "CEP",
+                    text = stringResource(id = R.string.cep),
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Normal
                 )
@@ -155,7 +158,7 @@ private fun MainContent(
             )
             Spacer(Modifier.width(6.dp))
             Text(
-                text = "Status: Em trânsito",
+                text = stringResource(id = R.string.order_status),
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Normal,
                 textAlign = TextAlign.Center
@@ -166,9 +169,9 @@ private fun MainContent(
 
 @Preview
 @Composable
-private fun TrackingScreenContentPreview() {
+private fun TrackingScreenPreview() {
     PreviewTheme(darkTheme = false) {
-        TrackingScreenContent(
+        TrackingScreen(
             uiState = TrackingUiState(
                 code = "AMZ123456789",
                 cep = 123456789

@@ -27,6 +27,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,25 +35,26 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.kproject.composejourney.R
 import com.kproject.composejourney.presentation.theme.PreviewTheme
 
 @Composable
 fun HomeScreen(
-    onNavigateToTracking: (code: String, cep: Int) -> Unit
+    onNavigateToTracking: (code: String, cep: Int) -> Unit,
+    homeViewModel: HomeViewModel = viewModel()
 ) {
-    val homeViewModel: HomeViewModel = viewModel()
     val uiState by homeViewModel.uiState.collectAsStateWithLifecycle()
-    HomeScreenContent(
+    HomeScreen(
+        uiState = uiState,
+        onUiEvent = homeViewModel::onUiEvent,
         onNavigateToTracking = {
             onNavigateToTracking.invoke(uiState.code, uiState.cep)
-        },
-        uiState = uiState,
-        onUiEvent = homeViewModel::onUiEvent
+        }
     )
 }
 
 @Composable
-fun HomeScreenContent(
+fun HomeScreen(
     uiState: HomeUiState,
     onUiEvent: (HomeUiEvent) -> Unit,
     onNavigateToTracking: () -> Unit
@@ -66,7 +68,7 @@ fun HomeScreenContent(
     ) {
         val verticalSpacing = 14.dp
         Text(
-            text = "Rastreador",
+            text = stringResource(id = R.string.tracker),
             color = MaterialTheme.colorScheme.primary,
             fontSize = 34.sp,
             fontWeight = FontWeight.Bold
@@ -77,7 +79,7 @@ fun HomeScreenContent(
             onTextChange = {
                 onUiEvent.invoke(HomeUiEvent.CodeChanged(it))
             },
-            label = "Código de rastreio",
+            label = stringResource(id = R.string.tracking_code),
             leadingIcon = Icons.Default.Info
         )
         Spacer(Modifier.height(verticalSpacing))
@@ -91,7 +93,7 @@ fun HomeScreenContent(
                     onUiEvent.invoke(HomeUiEvent.CepChanged(UndefinedCep))
                 }
             },
-            label = "CEP",
+            label = stringResource(id = R.string.cep),
             leadingIcon = Icons.Default.LocationOn,
             keyboardType = KeyboardType.Number
         )
@@ -102,7 +104,7 @@ fun HomeScreenContent(
             enabled = uiState.canNavigateToTrackingScreen,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Rastrear")
+            Text(text = stringResource(id = R.string.track))
         }
     }
 }
@@ -123,7 +125,7 @@ private fun HomeScreenWithoutStateHolder(onNavigateToTracking: (code: String, ce
     ) {
         val verticalSpacing = 14.dp
         Text(
-            text = "Rastreador",
+            text = stringResource(id = R.string.tracker),
             color = MaterialTheme.colorScheme.primary,
             fontSize = 34.sp,
             fontWeight = FontWeight.Bold
@@ -134,7 +136,7 @@ private fun HomeScreenWithoutStateHolder(onNavigateToTracking: (code: String, ce
             onTextChange = {
                 code = it
             },
-            label = "Código de rastreio",
+            label = stringResource(id = R.string.tracking_code),
             leadingIcon = Icons.Default.Info
         )
         Spacer(Modifier.height(verticalSpacing))
@@ -148,7 +150,7 @@ private fun HomeScreenWithoutStateHolder(onNavigateToTracking: (code: String, ce
                     cepNumber = UndefinedCep
                 }
             },
-            label = "CEP",
+            label = stringResource(id = R.string.cep),
             leadingIcon = Icons.Default.LocationOn,
             keyboardType = KeyboardType.Number
         )
@@ -160,7 +162,7 @@ private fun HomeScreenWithoutStateHolder(onNavigateToTracking: (code: String, ce
             contentPadding = PaddingValues(16.dp),
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Rastrear")
+            Text(stringResource(id = R.string.track))
         }
     }
 }
@@ -195,9 +197,9 @@ private fun CommonTextField(
 
 @Preview(showBackground = true)
 @Composable
-private fun HomeScreenContentPreview() {
+private fun HomeScreenPreview() {
     PreviewTheme(darkTheme = false) {
-        HomeScreenContent(
+        HomeScreen(
             uiState = HomeUiState(
                 code = "AMZ123456789",
                 cep = 1234689
