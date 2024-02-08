@@ -52,7 +52,7 @@ fun HomeScreen(
 }
 
 @Composable
-private fun HomeScreenContent(
+fun HomeScreenContent(
     uiState: HomeUiState,
     onUiEvent: (HomeUiEvent) -> Unit,
     onNavigateToTracking: () -> Unit
