@@ -5,6 +5,8 @@ import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavHost
+import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -16,8 +18,7 @@ import com.kproject.composejourney.presentation.content.screens.tracking.Trackin
 private const val ANIMATION_DURATION = 700
 
 @Composable
-fun AppNavHost() {
-    val navController = rememberNavController()
+fun AppNavHost(navController: NavHostController) {
     NavHost(
         navController = navController,
         startDestination = Screen.HomeScreen.route
