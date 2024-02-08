@@ -49,7 +49,7 @@ fun TrackingScreen(
     LaunchedEffect(Unit) {
         // trackingViewModel.getTrackingInfo(code = code, cep = cep)
     }
-    TrackingScreen(
+    TrackingContent(
         uiState = uiState,
         onNavigateBack = onNavigateBack
     )
@@ -64,7 +64,7 @@ fun TrackingScreen(
     }
 ) {
     val uiState by trackingViewModel.uiState.collectAsStateWithLifecycle()
-    TrackingScreen(
+    TrackingContent(
         uiState = uiState,
         onNavigateBack = onNavigateBack
     )
@@ -72,7 +72,7 @@ fun TrackingScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun TrackingScreen(
+private fun TrackingContent(
     uiState: TrackingUiState,
     onNavigateBack: () -> Unit
 ) {
@@ -169,9 +169,9 @@ private fun MainContent(
 
 @Preview
 @Composable
-private fun TrackingScreenPreview() {
+private fun TrackingContentPreview() {
     PreviewTheme(darkTheme = false) {
-        TrackingScreen(
+        TrackingContent(
             uiState = TrackingUiState(
                 code = "AMZ123456789",
                 cep = 123456789

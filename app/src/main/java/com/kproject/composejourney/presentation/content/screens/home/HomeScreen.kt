@@ -44,7 +44,7 @@ fun HomeScreen(
     homeViewModel: HomeViewModel = viewModel()
 ) {
     val uiState by homeViewModel.uiState.collectAsStateWithLifecycle()
-    HomeScreen(
+    HomeContent(
         uiState = uiState,
         onUiEvent = homeViewModel::onUiEvent,
         onNavigateToTracking = {
@@ -54,7 +54,7 @@ fun HomeScreen(
 }
 
 @Composable
-fun HomeScreen(
+fun HomeContent(
     uiState: HomeUiState,
     onUiEvent: (HomeUiEvent) -> Unit,
     onNavigateToTracking: () -> Unit
@@ -197,9 +197,9 @@ private fun CommonTextField(
 
 @Preview(showBackground = true)
 @Composable
-private fun HomeScreenPreview() {
+private fun HomeContentPreview() {
     PreviewTheme(darkTheme = false) {
-        HomeScreen(
+        HomeContent(
             uiState = HomeUiState(
                 code = "AMZ123456789",
                 cep = 1234689

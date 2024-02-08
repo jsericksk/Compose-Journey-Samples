@@ -4,7 +4,7 @@ import androidx.compose.ui.test.assertTextContains
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performTextInput
-import com.kproject.composejourney.presentation.content.screens.home.HomeScreen
+import com.kproject.composejourney.presentation.content.screens.home.HomeContent
 import com.kproject.composejourney.presentation.content.screens.home.HomeViewModel
 import org.junit.Before
 import org.junit.Rule
@@ -28,7 +28,7 @@ class HomeScreenTest {
     fun myTest() {
         composeTestRule.setContent {
             val homeScreenState = rememberHomeScreenState()
-            HomeScreen(
+            HomeContent(
                 uiState = homeScreenState.uiState,
                 onUiEvent = homeScreenState::onUiEvent,
                 onNavigateToTracking = {}
