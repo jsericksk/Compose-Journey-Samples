@@ -5,19 +5,19 @@
       <entry key="HomeScreenTest">
         <State />
       </entry>
-      <entry key="LoginScreenPreview">
-        <State />
-      </entry>
-      <entry key="Preview2">
-        <State />
-      </entry>
-      <entry key="Preview4">
-        <State />
-      </entry>
-      <entry key="Preview6">
-        <State />
-      </entry>
       <entry key="app">
+        <State />
+      </entry>
+      <entry key="appNavHost_WhenClickOnTrackButtonWithValidData_ShouldNavigateToTrackingScreen()">
+        <State />
+      </entry>
+      <entry key="homeScreenIsDisplayedCorrectly()">
+        <State />
+      </entry>
+      <entry key="testButton()">
+        <State />
+      </entry>
+      <entry key="whenTypingNonNumberCharactersInTheCep_thenTextFieldShouldIgnore()">
         <State />
       </entry>
     </value>

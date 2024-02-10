@@ -76,7 +76,9 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
     // Navigation Compose
-    implementation("androidx.navigation:navigation-compose:2.7.6")
+    val navigationVersion = "2.7.6"
+    implementation("androidx.navigation:navigation-compose:$navigationVersion")
+    androidTestImplementation("androidx.navigation:navigation-testing:$navigationVersion")
 
     // Coil
     implementation("io.coil-kt:coil-compose:2.5.0")
