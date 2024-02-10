@@ -1,16 +1,24 @@
 package com.kproject.composejourney.presentation.content.modifier
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kproject.composejourney.presentation.theme.MyAppTheme
@@ -114,6 +122,70 @@ private fun MarginAndPadding2() {
     }
 }
 
+@Composable
+private fun ConditionalModifier(showBackgroundAndBorderColor: Boolean) {
+    Text(
+        text = "Compose Journey",
+        modifier = Modifier
+            .padding(12.dp)
+            .then(
+                if (showBackgroundAndBorderColor) {
+                    Modifier
+                        .background(MaterialTheme.colorScheme.primaryContainer)
+                        .border(BorderStroke(2.dp, MaterialTheme.colorScheme.primary))
+                        .padding(6.dp)
+                } else {
+                    Modifier
+                }
+            )
+    )
+}
+
+private const val loremIpsumText =
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" +
+                " eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis" +
+                " nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute" +
+                " irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla" +
+                " pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia" +
+                " deserunt mollit anim id est laborum."
+
+val reusableModifier = Modifier
+    .fillMaxWidth()
+    .background(Color.Black)
+    .padding(8.dp)
+    .border(
+        width = 4.dp,
+        color = Color.White,
+        shape = RoundedCornerShape(8.dp)
+    )
+    .padding(12.dp)
+
+@Composable
+private fun ReusableModifier() {
+    Column(
+        modifier = Modifier
+            .padding(24.dp)
+            .verticalScroll(rememberScrollState())
+    ) {
+        Text(
+            text = "Início do capítulo",
+            color = Color.White,
+            textAlign = TextAlign.Center,
+            modifier = reusableModifier
+        )
+        Text(
+            text = loremIpsumText,
+            modifier = Modifier.padding(vertical = 12.dp)
+        )
+        Text(
+            text = "Fim do capítulo",
+            color = Color.White,
+            textAlign = TextAlign.Center,
+            modifier = reusableModifier
+        )
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 private fun Item1Preview() {
@@ -151,5 +223,21 @@ private fun MarginAndPadding1Preview() {
 private fun MarginAndPadding2Preview() {
     MyAppTheme {
         MarginAndPadding2()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ConditionalModifierPreview() {
+    MyAppTheme {
+        ConditionalModifier(showBackgroundAndBorderColor = true)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ReusableModifierPreview() {
+    MyAppTheme {
+        ReusableModifier()
     }
 }

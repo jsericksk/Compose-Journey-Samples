@@ -5,10 +5,10 @@
       <entry key="HomeScreenTest">
         <State />
       </entry>
-      <entry key="app">
+      <entry key="NavigationTest">
         <State />
       </entry>
-      <entry key="appNavHost_WhenClickOnTrackButtonWithValidData_ShouldNavigateToTrackingScreen()">
+      <entry key="app">
         <State />
       </entry>
       <entry key="homeScreenIsDisplayedCorrectly()">

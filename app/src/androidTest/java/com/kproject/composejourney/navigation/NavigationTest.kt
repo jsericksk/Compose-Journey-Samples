@@ -41,7 +41,7 @@ class NavigationTest {
     }
 
     @Test
-    fun whenClickOnTrackButton_ShouldNavigateToTrackingScreen() {
+    fun whenClickOnTrackButton_thenShouldNavigateToTrackingScreen() {
         val currentRoute1 = navController.currentBackStackEntry?.destination?.route
         assertEquals(currentRoute1, Screen.HomeScreen.route)
         composeTestRule
