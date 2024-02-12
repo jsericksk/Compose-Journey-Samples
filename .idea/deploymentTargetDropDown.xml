@@ -5,16 +5,16 @@
       <entry key="HomeScreenTest">
         <State />
       </entry>
+      <entry key="Image1Preview">
+        <State />
+      </entry>
       <entry key="NavigationTest">
         <State />
       </entry>
       <entry key="app">
         <State />
       </entry>
-      <entry key="homeScreenIsDisplayedCorrectly()">
-        <State />
-      </entry>
-      <entry key="testButton()">
+      <entry key="test()">
         <State />
       </entry>
       <entry key="whenTypingNonNumberCharactersInTheCep_thenTextFieldShouldIgnore()">
