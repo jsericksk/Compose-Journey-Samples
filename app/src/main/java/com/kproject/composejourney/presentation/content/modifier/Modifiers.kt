@@ -1,27 +1,44 @@
 package com.kproject.composejourney.presentation.content.modifier
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.kproject.composejourney.R
 import com.kproject.composejourney.presentation.theme.MyAppTheme
+import com.kproject.composejourney.presentation.theme.PreviewTheme
 
 @Composable
 private fun Item1() {
@@ -64,6 +81,26 @@ private fun Item3() {
             modifier = Modifier
                 .background(Color.Red)
                 .matchParentSize()
+        )
+    }
+}
+
+@Composable
+private fun CarItem() {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .padding(26.dp)
+            .clickable {}
+            .fillMaxWidth()
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.img_car),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .size(width = 300.dp, height = 250.dp)
+                .clip(RoundedCornerShape(16.dp))
         )
     }
 }
@@ -186,6 +223,141 @@ private fun ReusableModifier() {
     }
 }
 
+@Composable
+private fun ModifierWeight() {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .background(Color.Red)
+                    .height(80.dp)
+                    .weight(1f)
+            ) { Text(text = "weight(1f)") }
+
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .background(Color.Blue)
+                    .height(80.dp)
+                    .weight(1f)
+            ) { Text(text = "weight(1f)") }
+        }
+
+        Spacer(Modifier.height(16.dp))
+
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .background(Color.Red)
+                    .height(80.dp)
+                    .weight(2f)
+            ) { Text(text = "weight(2f)") }
+
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .background(Color.Blue)
+                    .height(80.dp)
+                    .weight(1f)
+            ) { Text(text = "weight(1f)") }
+        }
+
+        Spacer(Modifier.height(16.dp))
+
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .background(Color.Red)
+                    .height(80.dp)
+                    .weight(1f)
+            ) { Text(text = "weight(1f)") }
+
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .background(Color.Blue)
+                    .size(height = 80.dp, width = 60.dp)
+            ) {
+                Text(
+                    text = "Sem weight()",
+                    fontSize = 12.sp,
+                    textAlign = TextAlign.Center
+                )
+            }
+        }
+
+        Spacer(Modifier.height(16.dp))
+
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .background(Color.Red)
+                    .height(80.dp)
+                    .weight(1f)
+            ) { Text(text = "weight(1f)") }
+
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .background(Color.Blue)
+                    .height(80.dp)
+                    .weight(1f)
+            ) { Text(text = "weight(1f)") }
+
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .background(Color.Green)
+                    .height(80.dp)
+                    .weight(1f)
+            ) { Text(text = "weight(1f)") }
+        }
+    }
+}
+
+@Composable
+private fun FileItem() {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(12.dp)
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.weight(1f)
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.img_moon_space),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .size(80.dp)
+                    .clip(RoundedCornerShape(12.dp))
+            )
+            Spacer(Modifier.width(10.dp))
+            Text(
+                text = "Lua.jpg",
+                fontSize = 18.sp
+            )
+        }
+
+        IconButton(onClick = {}) {
+            Icon(
+                imageVector = Icons.Default.MoreVert,
+                contentDescription = null
+            )
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 private fun Item1Preview() {
@@ -207,6 +379,14 @@ private fun Item2Preview() {
 private fun Item3Preview() {
     MyAppTheme {
         Item3()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun CarItemPreview() {
+    PreviewTheme {
+        CarItem()
     }
 }
 
@@ -239,5 +419,21 @@ private fun ConditionalModifierPreview() {
 private fun ReusableModifierPreview() {
     MyAppTheme {
         ReusableModifier()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ModifierWeightPreview() {
+    MyAppTheme {
+        ModifierWeight()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun FileItemPreview() {
+    MyAppTheme {
+        FileItem()
     }
 }

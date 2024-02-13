@@ -11,13 +11,13 @@
       <entry key="NavigationTest">
         <State />
       </entry>
+      <entry key="RadioButtonPreview">
+        <State />
+      </entry>
       <entry key="app">
         <State />
       </entry>
       <entry key="test()">
-        <State />
-      </entry>
-      <entry key="whenTypingNonNumberCharactersInTheCep_thenTextFieldShouldIgnore()">
         <State />
       </entry>
     </value>
