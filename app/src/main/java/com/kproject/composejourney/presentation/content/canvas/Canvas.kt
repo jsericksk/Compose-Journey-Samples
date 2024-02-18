@@ -93,45 +93,6 @@ private fun Rect2() {
 }
 
 @Composable
-private fun Rect3() {
-    Canvas(
-        modifier = Modifier
-            .fillMaxSize()
-    ) {
-        val canvasSize = size
-        val rectSize = 100.dp.toPx()
-
-        // Top Start
-        drawRect(
-            color = Color.Red,
-            topLeft = Offset(0f, 0f),
-            size = Size(rectSize, rectSize)
-        )
-
-        // Top End
-        drawRect(
-            color = Color.Red,
-            topLeft = Offset(canvasSize.width - rectSize, 0f),
-            size = Size(rectSize, rectSize)
-        )
-
-        // Bottom Start
-        drawRect(
-            color = Color.Red,
-            topLeft = Offset(0f, canvasSize.height - rectSize),
-            size = Size(rectSize, rectSize)
-        )
-
-        // Bottom End
-        drawRect(
-            color = Color.Red,
-            topLeft = Offset(canvasSize.width - rectSize, canvasSize.height - rectSize),
-            size = Size(rectSize, rectSize)
-        )
-    }
-}
-
-@Composable
 private fun Circle1() {
     Canvas(
         modifier = Modifier
@@ -416,14 +377,6 @@ private fun Rect1Preview() {
 private fun Rect2Preview() {
     PreviewTheme() {
         Rect2()
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun Rect3Preview() {
-    PreviewTheme() {
-        Rect3()
     }
 }
 
