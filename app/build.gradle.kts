@@ -59,7 +59,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.activity:activity-compose:1.8.2")
 
-    implementation(platform("androidx.compose:compose-bom:2024.01.00"))
+    implementation(platform("androidx.compose:compose-bom:2024.02.01"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
@@ -76,7 +76,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
     // Navigation Compose
-    val navigationVersion = "2.7.6"
+    val navigationVersion = "2.7.7"
     implementation("androidx.navigation:navigation-compose:$navigationVersion")
     androidTestImplementation("androidx.navigation:navigation-testing:$navigationVersion")
 
