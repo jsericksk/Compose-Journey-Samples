@@ -5,12 +5,10 @@ import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavBackStackEntry
-import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.kproject.composejourney.presentation.content.screens.home.HomeScreen
 import com.kproject.composejourney.presentation.content.screens.tracking.TrackingScreen
@@ -29,11 +27,9 @@ fun AppNavHost(navController: NavHostController) {
         ) { navBackStackEntry ->
             HomeScreen(
                 onNavigateToTracking = { code, cep ->
-                    if (navBackStackEntry.lifecycleIsResumed()) {
-                        navController.navigate(
-                            Screen.TrackingScreen.routeWithArgs(code, cep)
-                        )
-                    }
+                    navController.navigate(
+                        Screen.TrackingScreen.routeWithArgs(code, cep)
+                    )
                 },
             )
         }
@@ -86,9 +82,7 @@ fun AppNavHost(navController: NavHostController) {
         ) { navBackStackEntry ->
             TrackingScreen(
                 onNavigateBack = {
-                    if (navBackStackEntry.lifecycleIsResumed()) {
-                        navController.popBackStack()
-                    }
+                    navController.popBackStack()
                 }
             )
         }

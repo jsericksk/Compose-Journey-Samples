@@ -33,6 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.compose.dropUnlessResumed
 import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kproject.composejourney.R
@@ -66,7 +67,7 @@ fun TrackingScreen(
     val uiState by trackingViewModel.uiState.collectAsStateWithLifecycle()
     TrackingContent(
         uiState = uiState,
-        onNavigateBack = onNavigateBack
+        onNavigateBack = dropUnlessResumed { onNavigateBack.invoke() }
     )
 }
 

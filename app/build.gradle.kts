@@ -70,7 +70,7 @@ dependencies {
     // lifecycle-runtime-compose
     implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycleVersion")
     // ViewModel utilities for Compose
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0-alpha02")
 
     // ConstraintLayout Compose
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
