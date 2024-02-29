@@ -27,10 +27,8 @@ fun AppNavHost(navController: NavHostController) {
         ) { navBackStackEntry ->
             HomeScreen(
                 onNavigateToTracking = { code, cep ->
-                    navController.navigate(
-                        Screen.TrackingScreen.routeWithArgs(code, cep)
-                    )
-                },
+                    navController.navigate(Screen.TrackingScreen.routeWithArgs(code, cep))
+                }
             )
         }
 
@@ -81,9 +79,7 @@ fun AppNavHost(navController: NavHostController) {
             }
         ) { navBackStackEntry ->
             TrackingScreen(
-                onNavigateBack = {
-                    navController.popBackStack()
-                }
+                onNavigateBack = { navController.popBackStack() }
             )
         }
     }

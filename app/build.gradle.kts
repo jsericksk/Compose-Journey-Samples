@@ -63,14 +63,13 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
-    // Resolver: https://stackoverflow.com/q/77877363
     implementation("androidx.compose.material3:material3")
 
-    val lifecycleVersion = "2.7.0"
+    val lifecycleVersion = "2.8.0-alpha02"
     // lifecycle-runtime-compose
     implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycleVersion")
     // ViewModel utilities for Compose
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0-alpha02")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion")
 
     // ConstraintLayout Compose
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
